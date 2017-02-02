@@ -11,7 +11,38 @@
     tools:context="com.example.michaelmonty.button_counter_monty.MainActivity">
 
     <TextView
+        android:text="counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_marginTop="140dp"
+        android:id="@+id/countTextView"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:text="SUB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_button"
+        android:layout_marginEnd="20dp" />
+
+    <Button
+        android:text="ADD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/countTextView" />
+
+
 </RelativeLayout>
