@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private Button subButton;
     private Button clearButton;
     private TextView countText;
-    private View mainActivity;
     private Integer count;
+    private float textSpace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
         subButton = (Button)findViewById(R.id.sub_button);
         clearButton = (Button)findViewById(R.id.clear_button);
         countText = (TextView)findViewById(R.id.countTextView);
-        mainActivity = findViewById(R.id.activity_main);
         countText.setText(count.toString());
-        countText.setTextSize(25);
         System.out.println(countText.getTextSize());
 
 
@@ -62,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("countSave",count);
+        outState.putFloat("countSize", countText.getTextSize());
     }
 
     @Override
@@ -69,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
         count = savedInstanceState.getInt("countSave");
         countText.setText(count.toString());
-        if(count >= 0 && count <= 50) {
-            countText.setTextSize(countText.getTextSize() + count);
+        if(countText.getTextSize() <= 570 && countText.getTextSize() > 0) {
+            countText.setTextSize((25 + (count/3)));
         }
         else {
             countText.setTextSize(25);
@@ -79,18 +78,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add(){
-        count = count+1;
+
+        textSpace = textSpace + 1;
         System.out.println(countText.getTextSize());
-        if(countText.getTextSize() > 0 && countText.getTextSize() <= 50) {
-            countText.setTextSize(50);
-            //countText.setTextSize(countText.getTextSize() + 1);
+        if(countText.getTextSize() <= 570 && countText.getTextSize() > -10) {
+            count = count+9;
+            countText.setTextSize((25 + (count/3)));
         }
     }
 
     public void remove(){
-        count = count - 1;
-        if(count >= 0 && count <= 255) {
-            countText.setTextSize(countText.getTextSize() -1);
+
+        System.out.println(countText.getTextSize());
+        if(countText.getTextSize() <= 580 && countText.getTextSize() > 0) {
+            count = count-9;
+            countText.setTextSize((25 + (count/3)));
         }
     }
 
